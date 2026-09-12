@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Openbtk — The open-source layer between biomedical data and modern AI</title>
+  <meta name="description" content="Openbtk turns EHR data and clinical text into model-ready, de-identified, auditable inputs, and wraps LLM outputs in clinical guardrails. Open source, Apache 2.0." />
+  <link rel="canonical" href="https://openbtk.org/openbtk/" />
+  <meta property="og:title" content="Openbtk — The open-source layer between biomedical data and modern AI" />
+  <meta property="og:description" content="De-identification you can audit. Run provenance as a primitive. The core toolkit for biomedical AI applications." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://openbtk.org/openbtk/" />
+  <link rel="icon" href="/assets/favicon.png?v=2" type="image/png" />
+  <link rel="stylesheet" href="/assets/css/style.css?v=4" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="brand">
+        <img src="/assets/logo.png?v=2" alt="" class="brand-mark" />
+        <span class="brand-word">Openbtk.ai</span>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="/#products">Products</a></li>
+          <li><a href="/#learn">Learn</a></li>
+          <li><a href="/#docs">Docs</a></li>
+          <li><a class="nav-cta" href="https://github.com/openbtk" target="_blank" rel="noopener">About</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="badge"><span class="badge-dot"></span> Pre-Alpha · Building in Public</div>
+      <h1>The open-source layer between<br/>biomedical data and modern AI.</h1>
+      <p class="subtitle">Openbtk turns EHR data and clinical text into model-ready, de-identified, auditable inputs — and wraps LLM outputs in clinical guardrails. Runs on a laptop or behind a hospital firewall, with any LLM provider.</p>
+      <div class="btn-group">
+        <span class="install-chip">pip install openbtk</span>
+        <a href="https://github.com/openbtk/openbtk-core" target="_blank" rel="noopener" class="btn btn-primary">View on GitHub</a>
+        <a href="https://pypi.org/project/openbtk/" target="_blank" rel="noopener" class="btn btn-secondary">PyPI</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">The Problem</div>
+          <h2>"Ask questions of the discharge summaries" costs six weeks of plumbing.</h2>
+          <p>Every team re-derives the same undifferentiated work — a note parser, a de-identifier that actually catches MRNs and admission-relative dates, chunking that doesn't split "Assessment" from "Plan," entity linking, an LLM that cites codes which don't exist — and then an IRB or an EU AI Act auditor asks exactly what data, model, and config produced a given output. Most teams have nothing to show.</p>
+        </div>
+        <div class="two-col">
+          <div class="card">
+            <div class="icon">🔐</div>
+            <h4>De-identification you can audit</h4>
+            <p>Not "runs Presidio." An ensemble of rule-based recognizers, clinical NER, and optional LLM adjudication, targeting entity-level F1 ≥ 0.95 on i2b2 2014 with a reproducible, one-command benchmark harness. Every run emits a <code>DeidReport</code> — entity counts, confidence, method attribution — that never contains the PHI itself.</p>
+          </div>
+          <div class="card">
+            <div class="icon">📋</div>
+            <h4>Run provenance as a primitive</h4>
+            <p>Every pipeline execution emits a <code>RunManifest</code>: config hash, component versions, input data digests, guardrail outcomes, timings. Content-addressable, diffable, and designed to satisfy EU AI Act Article 12 record-keeping obligations. <code>openbtk replay</code> reconstructs a run byte-for-byte.</p>
+          </div>
+        </div>
+        <p class="code-caption mt-lg">These two things, together, are what nothing else in open source has today.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Architecture</div>
+          <h2>A framework-free, layered core</h2>
+          <p>Strict downward-only imports, mechanically enforced in CI. A registry-mediated plugin model — every extension point is a base class you register against, not a fork you maintain.</p>
+        </div>
+        <div class="arch-panel">
+          <pre class="mermaid">
+graph TD
+    L6["<b>L6 · Applications &amp; Recipes</b><br/><span class='mm-sub'>clinical_text_rag · ehr_qa · deidentify_corpus</span>"]
+    L5["<b>L5 · Interfaces</b><br/><span class='mm-sub'>CLI (Typer) · optional LangChain adapter</span>"]
+    L4["<b>L4 · Orchestration</b><br/><span class='mm-sub'>Streaming DAG pipeline executor · RunManifest</span>"]
+    L3["<b>L3 · Cross-cutting Services</b><br/><span class='mm-sub'>llms · embeddings · retrieval · guardrails · terminology · eval · de-id</span>"]
+    L2["<b>L2 · Modality Modules</b><br/><span class='mm-sub'>clinical_text · ehr — imaging/biosignals/genomics gated</span>"]
+    L1["<b>L1 · Core</b><br/><span class='mm-sub'>registry · base classes · config · schemas · errors · provenance</span>"]
+
+    L6 --> L5 --> L4 --> L3 --> L2 --> L1
+
+    classDef l6 fill:#131c33,stroke:#60a5fa,stroke-width:2px,color:#f1f5f9;
+    classDef l5 fill:#131c33,stroke:#7c9bfb,stroke-width:2px,color:#f1f5f9;
+    classDef l4 fill:#131c33,stroke:#967dfa,stroke-width:2px,color:#f1f5f9;
+    classDef l3 fill:#131c33,stroke:#a06ff8,stroke-width:2px,color:#f1f5f9;
+    classDef l2 fill:#131c33,stroke:#aa62f6,stroke-width:2px,color:#f1f5f9;
+    classDef l1 fill:#131c33,stroke:#b455f4,stroke-width:2px,color:#f1f5f9;
+
+    class L6 l6
+    class L5 l5
+    class L4 l4
+    class L3 l3
+    class L2 l2
+    class L1 l1
+          </pre>
+        </div>
+        <div class="grid grid-4 mt-lg">
+          <div class="card"><h4>Domain-aware by default</h4><p>Built for clinical text and structured EHR data from day one, not bolted on.</p></div>
+          <div class="card"><h4>Wrap, don't reinvent</h4><p>MONAI for imaging, medspaCy for clinical NLP. Openbtk won't out-build the specialists.</p></div>
+          <div class="card"><h4>Streaming by default</h4><p>Loaders and chunkers stream — target: 10M notes under 4GB RSS.</p></div>
+          <div class="card"><h4>Safe by construction</h4><p>PHI-redacting logs on by default. Offsite LLM providers refused by default.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">What It Does</div>
+          <h2>Everything between raw data and a trustworthy prompt</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="card">
+            <div class="icon">🕵️</div>
+            <h4>De-identification</h4>
+            <p>Ensemble rules + NER + optional LLM verifier. All 18 HIPAA Safe Harbor categories.</p>
+            <ul class="card-list">
+              <li>5 transform modes: redact, surrogate, hash, tag, date-shift</li>
+              <li>Per-patient consistent replacement</li>
+              <li>Output-side PHI leakage guardrail</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="icon">📄</div>
+            <h4>Clinical Text</h4>
+            <p>Loaders for plain text, MIMIC III/IV, JSONL, CDA/CCD.</p>
+            <ul class="card-list">
+              <li>Section-aware chunking — never splits Assessment from Plan</li>
+              <li>ConText-style negation &amp; uncertainty detection</li>
+              <li>PubMedBERT, BioBERT, ClinicalBERT, SapBERT, MedCPT presets</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="icon">🧬</div>
+            <h4>EHR &amp; Terminology</h4>
+            <p>FHIR R4, OMOP CDM, HL7v2 into a unified PatientRecord.</p>
+            <ul class="card-list">
+              <li>Structured → narrative timeline serialization</li>
+              <li>Streaming, composable cohort builder</li>
+              <li>SNOMED CT, LOINC, RxNorm, ICD-10/11, UMLS resolution</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="icon">🔌</div>
+            <h4>Providers</h4>
+            <p>OpenAI, Anthropic, HF local, vLLM, Azure, Bedrock, Vertex.</p>
+            <ul class="card-list">
+              <li>Biomedical model presets (MedGemma, Meditron, BioGPT)</li>
+              <li>Every provider declares <code>sends_data_offsite</code></li>
+              <li>Structured output validated against a Pydantic schema</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="icon">🔎</div>
+            <h4>Retrieval</h4>
+            <p>FAISS, Chroma, Qdrant vector stores.</p>
+            <ul class="card-list">
+              <li>Concept-overlap reranking by shared UMLS CUIs</li>
+              <li>Clinical cross-encoder reranking, hybrid dense+BM25</li>
+              <li>Source provenance to exact character offsets</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="icon">🛡️</div>
+            <h4>Guardrails, Pipelines &amp; CLI</h4>
+            <p>Composable, never-raise guardrail checks.</p>
+            <ul class="card-list">
+              <li>Groundedness, terminology validity, dose plausibility</li>
+              <li>Config-as-data YAML pipelines, not agent control flow</li>
+              <li><code>openbtk run · validate · deid · replay · doctor</code></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Code</div>
+          <h2>Designed to read like plain Python</h2>
+        </div>
+
+        <div class="code-block">
+          <div class="code-block-head">
+            <span>deidentify.py</span>
+            <button class="copy-btn">Copy</button>
+          </div>
+          <pre><code><span class="tok-kw">from</span> openbtk.deid <span class="tok-kw">import</span> DeidEngine, DeidMode
+
+engine = DeidEngine(mode=DeidMode.SURROGATE, recall_bias=<span class="tok-str">"high"</span>)
+result = engine.deidentify(text, patient_id=<span class="tok-str">"hashed-123"</span>)
+
+result.text    <span class="tok-com"># "Robert Chen was seen on [DATE-SHIFTED] for..."</span>
+result.report  <span class="tok-com"># DeidReport — audit trail, never contains the PHI itself</span></code></pre>
+        </div>
+        <p class="code-caption">Planned API — target design, not yet shipped.</p>
+
+        <div class="code-block mt-lg">
+          <div class="code-block-head">
+            <span>pipeline.py</span>
+            <button class="copy-btn">Copy</button>
+          </div>
+          <pre><code><span class="tok-kw">from</span> openbtk.pipelines <span class="tok-kw">import</span> Pipeline, Step
+
+pipeline = (
+    Pipeline(<span class="tok-str">"clinical-rag"</span>)
+    .add(Step(<span class="tok-str">"load"</span>,  <span class="tok-str">"loader.clinical_text.plain_text"</span>, path=<span class="tok-str">"./notes"</span>))
+    .add(Step(<span class="tok-str">"deid"</span>,  <span class="tok-str">"preprocessor.general.deidentify"</span>, mode=<span class="tok-str">"surrogate"</span>))
+    .add(Step(<span class="tok-str">"chunk"</span>, <span class="tok-str">"chunker.clinical_text.section_aware"</span>, max_tokens=<span class="tok-fn">512</span>))
+    .add(Step(<span class="tok-str">"embed"</span>, <span class="tok-str">"embedding.clinical_text.pubmedbert"</span>))
+    .add(Step(<span class="tok-str">"index"</span>, <span class="tok-str">"vectorstore.general.faiss"</span>, path=<span class="tok-str">"./index"</span>))
+    .guard(<span class="tok-str">"guardrail.general.phi_leakage"</span>, at=<span class="tok-str">"after:deid"</span>, on_violation=<span class="tok-str">"block"</span>)
+)
+manifest = pipeline.run()
+<span class="tok-fn">print</span>(manifest.status, manifest.run_id)  <span class="tok-com"># everything an IRB/auditor will ask for</span></code></pre>
+        </div>
+        <p class="code-caption">Planned API — target design, not yet shipped.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Who It's For</div>
+          <h2>A toolkit for builders, not a finished product</h2>
+          <p>Not for clinicians wanting a diagnostic tool. Built for the people wiring biomedical data into AI systems.</p>
+        </div>
+        <div class="grid grid-4">
+          <div class="persona-card">
+            <div class="name">Maya</div>
+            <div class="role">ML Engineer, health-tech startup</div>
+            <p>Building discharge-summary Q&amp;A on a hospital partner's data — needs de-id reliable enough to survive a security review.</p>
+          </div>
+          <div class="persona-card">
+            <div class="name">Dr. Alvarez</div>
+            <div class="role">Informatics postdoc</div>
+            <p>Studying readmission signals across notes and labs on MIMIC-IV, without needing 300GB of RAM.</p>
+          </div>
+          <div class="persona-card">
+            <div class="name">Ken</div>
+            <div class="role">Informatics lead, pharma</div>
+            <p>Weighing build-vs-buy against a six-figure commercial license — needs on-prem execution and an audit trail QA accepts.</p>
+          </div>
+          <div class="persona-card">
+            <div class="name">Priya</div>
+            <div class="role">OSS contributor</div>
+            <p>Adding a new modality by implementing base classes and registering — without patching the framework core.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Comparisons</div>
+          <h2>Why not just use X?</h2>
+          <p>Openbtk doesn't try to out-build category leaders. It fills the gap between them.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="compare">
+            <thead>
+              <tr><th>Tool</th><th>Camp</th><th>Where Openbtk differs</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>PyHealth 2.0</td><td>Predictive DL health toolkit</td><td>Complementary, not identical — PyHealth predicts, Openbtk is the LLM/agent-era data + safety layer.</td></tr>
+              <tr><td>MONAI</td><td>Medical imaging</td><td>Not reimplemented — wrapped in a future imaging module.</td></tr>
+              <tr><td>LangChain / LlamaIndex</td><td>Generic orchestration &amp; RAG</td><td>Domain-blind: no FHIR resource, DICOM series, or lab-panel concepts. One isolated optional adapter instead of a fork.</td></tr>
+              <tr><td>Guardrails AI / NeMo Guardrails</td><td>Generic output validation</td><td>No clinical semantics — no dose plausibility, code validity, or chart-groundedness checks.</td></tr>
+              <tr><td>John Snow Labs</td><td>Commercial clinical NLP</td><td>Closed source, license cost excludes academia/startups, no public reproducible eval harness.</td></tr>
+              <tr><td>AWS / GCP / Azure health AI</td><td>Hyperscaler platforms</td><td>Vendor lock-in and usage-scaled cost. Openbtk competes on portability, auditability, and running on a laptop.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container text-center">
+        <div class="eyebrow">Status</div>
+        <h2>Milestone M0 complete. M1 — the core framework — is next.</h2>
+        <p class="subtitle" style="margin-bottom:2rem;">Openbtk is pre-alpha today. Follow the milestone-by-milestone build in public on GitHub.</p>
+        <a href="https://github.com/openbtk/openbtk-core" target="_blank" rel="noopener" class="btn btn-primary">Follow progress on GitHub →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5>Site</h5>
+          <a href="/#products">Products</a>
+          <a href="/#learn">Learn</a>
+          <a href="/#docs">Docs</a>
+        </div>
+        <div class="footer-col">
+          <h5>Openbtk</h5>
+          <a href="https://github.com/openbtk/openbtk-core" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://pypi.org/project/openbtk/" target="_blank" rel="noopener">PyPI</a>
+        </div>
+        <div class="footer-col">
+          <h5>Legal</h5>
+          <a href="https://github.com/openbtk/openbtk-core/blob/main/LICENSE" target="_blank" rel="noopener">Apache 2.0 License</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Openbtk.ai. Copyrights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: "base",
+      themeVariables: {
+        darkMode: true,
+        background: "#0a0e17",
+        primaryColor: "#131c33",
+        primaryTextColor: "#f1f5f9",
+        primaryBorderColor: "#3b82f6",
+        lineColor: "#8b5cf6",
+        secondaryColor: "#131c33",
+        tertiaryColor: "#131c33",
+        fontFamily: "Inter, system-ui, sans-serif",
+        fontSize: "14px"
+      },
+      flowchart: { htmlLabels: true, curve: "basis", nodeSpacing: 40, rankSpacing: 46, useMaxWidth: false }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<svg viewBox="0 0 1600 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="hb-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <radialGradient id="hb-fade" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#0a0e17" stop-opacity="0"/>
+      <stop offset="75%" stop-color="#0a0e17" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0a0e17" stop-opacity="0.9"/>
+    </radialGradient>
+  </defs>
+
+  <style>
+    @keyframes hb-pulse {
+      0%, 100% { opacity: 0.55; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.12); }
+    }
+    @keyframes hb-rung {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.75; }
+    }
+    @keyframes hb-flow {
+      to { stroke-dashoffset: -64; }
+    }
+    @keyframes hb-ekg {
+      to { stroke-dashoffset: -840; }
+    }
+    @keyframes hb-drift {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-24px); }
+    }
+    .hb-node {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: hb-pulse 3.2s ease-in-out infinite;
+    }
+    .hb-rung { animation: hb-rung 2s ease-in-out infinite; }
+    .hb-edges { stroke-dasharray: 5 11; animation: hb-flow 5s linear infinite; }
+    .hb-ekg { stroke-dasharray: 140 700; animation: hb-ekg 2.8s linear infinite; }
+    .hb-helix { animation: hb-drift 2.2s ease-in-out infinite; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hb-node, .hb-rung, .hb-edges, .hb-ekg, .hb-helix { animation: none; }
+    }
+  </style>
+
+  <!-- DNA double helix, left -->
+  <g class="hb-helix">
+    <g stroke="url(#hb-grad)" stroke-width="2.5" fill="none" opacity="0.75">
+      <path d="M190,-20 C270,30 270,90 190,140 C110,190 110,250 190,300 C270,350 270,410 190,460 C110,510 110,570 190,620 C250,655 250,685 210,720"/>
+      <path d="M190,-20 C110,30 110,90 190,140 C270,190 270,250 190,300 C110,350 110,410 190,460 C270,510 270,570 190,620 C130,655 130,685 170,720"/>
+    </g>
+    <g stroke="url(#hb-grad)" stroke-width="1.6" opacity="0.5">
+      <line class="hb-rung" x1="150" y1="70" x2="230" y2="70" style="animation-delay:0s"/>
+      <line class="hb-rung" x1="150" y1="220" x2="230" y2="220" style="animation-delay:.5s"/>
+      <line class="hb-rung" x1="150" y1="380" x2="230" y2="380" style="animation-delay:1s"/>
+      <line class="hb-rung" x1="150" y1="540" x2="230" y2="540" style="animation-delay:1.5s"/>
+    </g>
+    <g fill="url(#hb-grad)" opacity="0.8">
+      <circle class="hb-node" cx="190" cy="0" r="5" style="animation-delay:0s"/>
+      <circle class="hb-node" cx="230" cy="70" r="3.4" style="animation-delay:.2s"/>
+      <circle class="hb-node" cx="150" cy="70" r="3.4" style="animation-delay:.4s"/>
+      <circle class="hb-node" cx="190" cy="140" r="5" style="animation-delay:.6s"/>
+      <circle class="hb-node" cx="150" cy="220" r="3.4" style="animation-delay:.8s"/>
+      <circle class="hb-node" cx="230" cy="220" r="3.4" style="animation-delay:1s"/>
+      <circle class="hb-node" cx="190" cy="300" r="5" style="animation-delay:1.2s"/>
+      <circle class="hb-node" cx="230" cy="380" r="3.4" style="animation-delay:1.4s"/>
+      <circle class="hb-node" cx="150" cy="380" r="3.4" style="animation-delay:1.6s"/>
+      <circle class="hb-node" cx="190" cy="460" r="5" style="animation-delay:1.8s"/>
+      <circle class="hb-node" cx="150" cy="540" r="3.4" style="animation-delay:2s"/>
+      <circle class="hb-node" cx="230" cy="540" r="3.4" style="animation-delay:2.2s"/>
+      <circle class="hb-node" cx="190" cy="620" r="5" style="animation-delay:2.4s"/>
+    </g>
+  </g>
+
+  <!-- Molecular / neural network mesh, right -->
+  <g class="hb-edges" stroke="url(#hb-grad)" stroke-width="1.4" opacity="0.5">
+    <line x1="1150" y1="80" x2="1280" y2="60"/>
+    <line x1="1280" y1="60" x2="1400" y2="120"/>
+    <line x1="1400" y1="120" x2="1520" y2="90"/>
+    <line x1="1150" y1="80" x2="1180" y2="220"/>
+    <line x1="1280" y1="60" x2="1320" y2="240"/>
+    <line x1="1400" y1="120" x2="1460" y2="260"/>
+    <line x1="1520" y1="90" x2="1560" y2="220"/>
+    <line x1="1180" y1="220" x2="1320" y2="240"/>
+    <line x1="1320" y1="240" x2="1460" y2="260"/>
+    <line x1="1460" y1="260" x2="1560" y2="220"/>
+    <line x1="1180" y1="220" x2="1140" y2="380"/>
+    <line x1="1320" y1="240" x2="1290" y2="400"/>
+    <line x1="1460" y1="260" x2="1430" y2="420"/>
+    <line x1="1560" y1="220" x2="1550" y2="380"/>
+    <line x1="1140" y1="380" x2="1290" y2="400"/>
+    <line x1="1290" y1="400" x2="1430" y2="420"/>
+    <line x1="1430" y1="420" x2="1550" y2="380"/>
+    <line x1="1140" y1="380" x2="1200" y2="540"/>
+    <line x1="1290" y1="400" x2="1350" y2="560"/>
+    <line x1="1430" y1="420" x2="1480" y2="600"/>
+    <line x1="1550" y1="380" x2="1560" y2="540"/>
+    <line x1="1200" y1="540" x2="1350" y2="560"/>
+    <line x1="1350" y1="560" x2="1480" y2="600"/>
+    <line x1="1480" y1="600" x2="1560" y2="540"/>
+  </g>
+  <g fill="url(#hb-grad)" opacity="0.75">
+    <circle class="hb-node" cx="1150" cy="80" r="6" style="animation-delay:.1s"/>
+    <circle class="hb-node" cx="1280" cy="60" r="4" style="animation-delay:.3s"/>
+    <circle class="hb-node" cx="1400" cy="120" r="7" style="animation-delay:.5s"/>
+    <circle class="hb-node" cx="1520" cy="90" r="5" style="animation-delay:.7s"/>
+    <circle class="hb-node" cx="1180" cy="220" r="5" style="animation-delay:.9s"/>
+    <circle class="hb-node" cx="1320" cy="240" r="6" style="animation-delay:1.1s"/>
+    <circle class="hb-node" cx="1460" cy="260" r="4" style="animation-delay:1.3s"/>
+    <circle class="hb-node" cx="1560" cy="220" r="8" style="animation-delay:1.5s"/>
+    <circle class="hb-node" cx="1140" cy="380" r="7" style="animation-delay:1.7s"/>
+    <circle class="hb-node" cx="1290" cy="400" r="5" style="animation-delay:1.9s"/>
+    <circle class="hb-node" cx="1430" cy="420" r="6" style="animation-delay:2.1s"/>
+    <circle class="hb-node" cx="1550" cy="380" r="4" style="animation-delay:2.3s"/>
+    <circle class="hb-node" cx="1200" cy="540" r="6" style="animation-delay:2.5s"/>
+    <circle class="hb-node" cx="1350" cy="560" r="5" style="animation-delay:2.7s"/>
+    <circle class="hb-node" cx="1480" cy="600" r="7" style="animation-delay:2.9s"/>
+    <circle class="hb-node" cx="1560" cy="540" r="4" style="animation-delay:3.1s"/>
+  </g>
+
+  <!-- Live EKG pulse bridging the two motifs -->
+  <path class="hb-ekg" d="M420,70 L470,70 L488,32 L506,110 L524,52 L542,70 L640,70 L658,32 L676,110 L694,52 L712,70 L810,70 L828,32 L846,110 L864,52 L882,70 L1020,70"
+        stroke="url(#hb-grad)" stroke-width="2.4" fill="none" opacity="0.6" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- Fade toward the edges so it recedes behind the headline -->
+  <rect x="0" y="0" width="1600" height="700" fill="url(#hb-fade)"/>
+</svg>

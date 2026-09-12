@@ -1,76 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OpenBTK - The Open Biomedical Toolkit</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Openbtk.ai — Open-source infrastructure for biomedical AI</title>
+  <meta name="description" content="Openbtk is an open-source toolkit that ingests, de-identifies, and grounds biomedical data for LLM applications." />
+  <link rel="canonical" href="https://openbtk.org/" />
+  <meta property="og:title" content="Openbtk.ai — Open-source infrastructure for biomedical AI" />
+  <meta property="og:description" content="Openbtk is the open-source toolkit for ingesting, de-identifying, and grounding biomedical data for LLM applications in healthcare." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://openbtk.org/" />
+  <link rel="icon" href="/assets/favicon.png?v=2" type="image/png" />
+  <link rel="stylesheet" href="/assets/css/style.css?v=4" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <header class="navbar">
-        <div class="nav-left">
-            <!-- <img src="assets/logo.svg" alt="OpenBTK Logo" class="logo" /> -->
-            <h1 class="brand">OpenBTK</h1>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="brand">
+        <img src="/assets/logo.png?v=2" alt="" class="brand-mark" />
+        <span class="brand-word">Openbtk.ai</span>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#products">Products</a></li>
+          <li><a href="#learn">Learn</a></li>
+          <li><a href="#docs">Docs</a></li>
+          <li><a class="nav-cta" href="https://github.com/openbtk" target="_blank" rel="noopener">About</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <img class="hero-bg" src="/assets/hero-bg.svg" alt="" aria-hidden="true" />
+      <div class="badge"><span class="badge-dot"></span> Pre-Alpha · Building in Public</div>
+      <h1>Open-source infrastructure<br/>for biomedical AI.</h1>
+      <p class="subtitle">Openbtk is the open-source toolkit that ingests, de-identifies, and grounds biomedical data for LLMs — built for healthcare enterprises, developers, and researchers building next-generation GenAI applications.</p>
+      <div class="btn-group">
+        <a href="/openbtk/" class="btn btn-primary">Explore Openbtk</a>
+        <a href="https://github.com/openbtk" target="_blank" rel="noopener" class="btn btn-secondary">View on GitHub</a>
+      </div>
+    </section>
+
+    <section class="section" id="products" style="border-top:none;">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Products</div>
+          <h2>Openbtk</h2>
+          <p>The open-source core toolkit for biomedical AI.</p>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#models">Models</a></li>
-                <li><a href="#embeddings">Embeddings</a></li>
-                <li><a href="https://pypi.org/project/openbtk/" target="_blank">PyPI</a></li>
-                <li><a href="https://github.com/openbtk/openbtk-core" target="_blank" class="github-btn">GitHub</a></li>
-            </ul>
-        </nav>
-    </header>
+        <div class="grid" style="max-width:420px;margin:0 auto;">
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <div class="release-badge">New Release: v0.1.0</div>
-                <h2>Ingest. Encode. Analyze.</h2>
-                <p class="subtitle">The complete open-source toolkit for multi-modal biomedical AI.</p>
-                <div class="cta-group">
-                    <span class="install-cmd">pip install openbtk</span>
-                    <a href="https://github.com/openbtk/openbtk-core" class="btn-primary">Get Started</a>
-                </div>
+          <div class="product-card">
+            <div class="product-card-head">
+              <h3>Openbtk</h3>
+              <span class="status-pill status-progress">Pre-Alpha</span>
             </div>
-        </section>
+            <div class="role">Core toolkit · Flagship</div>
+            <p>Ingest, de-identify, chunk, embed, retrieve, guardrail, and audit biomedical data for LLM applications.</p>
+            <a class="product-card-link" href="/openbtk/">Explore Openbtk →</a>
+          </div>
 
-        <section id="features" class="features-section">
-            <h3>Powering the Next Gen of Medical AI</h3>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="icon">📄</div>
-                    <h4>Clinical Text</h4>
-                    <p>Process notes and reports with specialized chunking and BioBERT embeddings.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">🖼️</div>
-                    <h4>Medical Imaging</h4>
-                    <p>Seamlessly handle X-rays and CT scans with CLIP-aligned multimodal vectors.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">🔊</div>
-                    <h4>Bio-Signals</h4>
-                    <p>Ingest PCG audio and other biosignals with automated segmentation.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">🚀</div>
-                    <h4>Vector Ready</h4>
-                    <p>One-line export to Pinecone, Milvus, or Weaviate for RAG pipelines.</p>
-                </div>
-            </div>
-        </section>
-    </main>
+        </div>
+      </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2025 OpenBTK. Released under MIT License.</p>
-    </footer>
+    <section class="section" id="learn">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Learn</div>
+          <h2>Why Openbtk exists</h2>
+          <p>Openbtk is an open source library for building biomedical AI applications — turning EHR data and clinical text into model-ready, de-identified, auditable inputs, so teams stop re-solving the same infrastructure problems.</p>
+        </div>
+
+        <div class="grid grid-3 mt-lg">
+          <div class="card">
+            <div class="icon">🧭</div>
+            <h4>No claim without a benchmark</h4>
+            <p>We don't advertise features that aren't built, or numbers that aren't measured. If something is a design target, it's labeled as one.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🏗️</div>
+            <h4>Standards-first</h4>
+            <p>FHIR, DICOM, OMOP, HL7, LOINC, SNOMED CT, UMLS — we build on top of existing biomedical standards, not around them.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🔓</div>
+            <h4>Open source, on purpose</h4>
+            <p>Runs on a laptop or behind a hospital firewall. No forced vendor lock-in for the tools that shouldn't require it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="docs">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Docs</div>
+          <h2>Documentation ships alongside Openbtk v0.1</h2>
+          <p>Openbtk is pre-alpha today, so there's no reference docs site yet — a marketing page can't substitute for real API docs once there's a real API. Until then, the README is the source of truth.</p>
+        </div>
+        <div class="btn-group">
+          <a href="https://github.com/openbtk/openbtk-core#readme" target="_blank" rel="noopener" class="btn btn-primary">Read the README</a>
+          <a href="https://github.com/openbtk" target="_blank" rel="noopener" class="btn btn-secondary">Browse the GitHub org</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h5>Site</h5>
+          <a href="#products">Products</a>
+          <a href="#learn">Learn</a>
+          <a href="#docs">Docs</a>
+        </div>
+        <div class="footer-col">
+          <h5>Community</h5>
+          <a href="https://github.com/openbtk" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/openbtk/openbtk-core" target="_blank" rel="noopener">Openbtk repo</a>
+        </div>
+        <div class="footer-col">
+          <h5>Legal</h5>
+          <a href="https://github.com/openbtk/openbtk-core/blob/main/LICENSE" target="_blank" rel="noopener">Apache 2.0 License</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Openbtk.ai. Copyrights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
 </body>
-
 </html>
