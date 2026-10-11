@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Openbtk AI - Home</title>
-  <meta name="description" content="Openbtk is an open-source toolkit that ingests, de-identifies, and grounds biomedical data for LLM applications." />
+  <meta name="description" content="Openbtk AI is an open source project for biomedical AI, built around Openbtk — a real, tested, open-source toolkit for ingesting, de-identifying, and grounding biomedical data for LLMs." />
   <link rel="canonical" href="https://openbtk.org/" />
-  <meta property="og:title" content="Openbtk.ai — Open-source infrastructure for biomedical AI" />
-  <meta property="og:description" content="Openbtk is the open-source toolkit for ingesting, de-identifying, and grounding biomedical data for LLM applications in healthcare." />
+  <meta property="og:title" content="Openbtk AI — an open source ecosystem for biomedical AI" />
+  <meta property="og:description" content="Openbtk AI is an open source project for biomedical AI, built around Openbtk — a real, tested, open-source toolkit for ingesting, de-identifying, and grounding biomedical data for LLMs." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://openbtk.org/" />
   <link rel="icon" href="/assets/favicon.png?v=2" type="image/png" />
@@ -26,7 +26,7 @@
       </a>
       <div class="nav-right">
         <ul class="nav-links">
-          <li><a href="#products">Products</a></li>
+          <li><a href="#ecosystem">Ecosystem</a></li>
           <li><a href="#learn">Learn</a></li>
           <li><a href="#docs">Docs</a></li>
           <li><a class="nav-cta" href="https://github.com/openbtk" target="_blank" rel="noopener">About</a></li>
@@ -39,32 +39,32 @@
   <main>
     <section class="hero">
       <img class="hero-bg" src="/assets/hero-bg.svg" alt="" aria-hidden="true" />
-      <div class="badge"><span class="badge-dot"></span> Pre-Alpha · Building in Public</div>
+      <div class="badge"><span class="badge-dot"></span> Open Source Project · v0.5</div>
       <h1>Open-source infrastructure<br/>for biomedical AI.</h1>
-      <p class="subtitle">Openbtk is the open-source toolkit that ingests, de-identifies, and grounds biomedical data for LLMs — built for healthcare enterprises, data scientists, AI engineers, and researchers building next-generation GenAI applications.</p>
+      <p class="subtitle">Openbtk AI is an open source project for biomedical AI — built around Openbtk, a real, tested toolkit that ingests, de-identifies, and grounds biomedical data for LLMs. More components will join the ecosystem as they're ready.</p>
       <div class="btn-group">
-        <a href="/openbtk/" class="btn btn-primary">Explore Openbtk</a>
+        <a href="https://openbtk.org/openbtk-core/" target="_blank" rel="noopener" class="btn btn-primary">Explore Openbtk</a>
         <a href="https://github.com/openbtk" target="_blank" rel="noopener" class="btn btn-secondary">View on GitHub</a>
       </div>
     </section>
 
-    <section class="section" id="products" style="border-top:none;">
+    <section class="section" id="ecosystem" style="border-top:none;">
       <div class="container">
         <div class="section-head">
-          <div class="eyebrow">Products</div>
-          <h2>Openbtk</h2>
-          <p>The open-source core toolkit for biomedical AI.</p>
+          <div class="eyebrow">Ecosystem</div>
+          <h2>One open source ecosystem, one component so far</h2>
+          <p>Openbtk AI isn't a company selling products — it's an open source project. Openbtk is the first real component; everything else joins when it's actually ready.</p>
         </div>
         <div class="grid" style="max-width:420px;margin:0 auto;">
 
           <div class="product-card">
             <div class="product-card-head">
               <h3>Openbtk</h3>
-              <span class="status-pill status-progress">Pre-Alpha</span>
+              <span class="status-pill status-done">v0.5 · Active</span>
             </div>
-            <div class="role">Core toolkit · Flagship</div>
-            <p>Ingest, de-identify, chunk, embed, retrieve, guardrail, and audit biomedical data for LLM applications.</p>
-            <a class="product-card-link" href="/openbtk/">Explore Openbtk →</a>
+            <div class="role">Open source toolkit</div>
+            <p>De-identification, streaming pipelines, provenance, EHR loading, retrieval, and guardrails for biomedical AI — tested, benchmarked, and installable today.</p>
+            <a class="product-card-link" href="https://openbtk.org/openbtk-core/" target="_blank" rel="noopener">Explore Openbtk →</a>
           </div>
 
         </div>
@@ -75,25 +75,34 @@
       <div class="container">
         <div class="section-head">
           <div class="eyebrow">Learn</div>
-          <h2>Why Openbtk exists</h2>
-          <p>Openbtk is an open source library for building biomedical AI applications — turning EHR data and clinical text into model-ready, de-identified, auditable inputs, so teams stop re-solving the same infrastructure problems.</p>
+          <h2>What is the Openbtk AI ecosystem?</h2>
+          <p>Openbtk AI is an open source project, not a product lineup — a growing collection of tools for biomedical AI that share one goal: help healthcare enterprises, developers, and researchers build next-generation GenAI applications without re-solving the same infrastructure problems. Openbtk is where it starts.</p>
         </div>
 
-        <div class="grid grid-3 mt-lg">
+        <img src="/assets/ecosystem-diagram.svg" alt="Diagram: Openbtk AI ecosystem at the center, connected to Openbtk (the active v0.5 toolkit) today, with more components to come over time" style="max-width:640px;width:100%;margin:0 auto 3rem;display:block;" />
+
+        <p class="code-caption" style="margin-bottom:2rem;">What that actually solves, in a traditional biomedical AI or agent build:</p>
+
+        <div class="grid grid-4">
           <div class="card">
-            <div class="icon">🧭</div>
-            <h4>No claim without a benchmark</h4>
-            <p>We don't advertise features that aren't built, or numbers that aren't measured. If something is a design target, it's labeled as one.</p>
+            <div class="icon">🔒</div>
+            <h4>Build AI your compliance team approves</h4>
+            <p>Patient data is de-identified before it ever reaches a model — so your team can build clinical chatbots and assistants without becoming PHI-handling experts first.</p>
           </div>
           <div class="card">
-            <div class="icon">🏗️</div>
-            <h4>Standards-first</h4>
-            <p>FHIR, DICOM, OMOP, HL7, LOINC, SNOMED CT, UMLS — we build on top of existing biomedical standards, not around them.</p>
+            <div class="icon">📋</div>
+            <h4>Answer "prove it" before it's asked</h4>
+            <p>Every AI pipeline leaves a verifiable record of what happened — the audit trail enterprise healthcare organizations, auditors, and regulators expect, without extra engineering work on your side.</p>
           </div>
           <div class="card">
-            <div class="icon">🔓</div>
-            <h4>Open source, on purpose</h4>
-            <p>Runs on a laptop or behind a hospital firewall. No forced vendor lock-in for the tools that shouldn't require it.</p>
+            <div class="icon">🗂️</div>
+            <h4>AI that reads a chart like a clinician</h4>
+            <p>A patient's history, assessment, and plan stay together instead of being scrambled into generic text fragments — so your RAG system gives grounded, coherent answers.</p>
+          </div>
+          <div class="card">
+            <div class="icon">⚡</div>
+            <h4>From pilot to enterprise scale, no rewrite</h4>
+            <p>Built to handle real patient-record volumes from day one, so a proof-of-concept with a few hundred notes doesn't turn into a rebuild six months later.</p>
           </div>
         </div>
       </div>
@@ -103,11 +112,11 @@
       <div class="container">
         <div class="section-head">
           <div class="eyebrow">Docs</div>
-          <h2>Documentation ships alongside Openbtk v0.1</h2>
-          <p>Openbtk is pre-alpha today, so there's no reference docs site yet — a marketing page can't substitute for real API docs once there's a real API. Until then, the README is the source of truth.</p>
+          <h2>Real documentation, generated from the code</h2>
+          <p>Openbtk's docs build straight from the codebase and deploy automatically on every change — installation, API reference, guides, and benchmarks.</p>
         </div>
         <div class="btn-group">
-          <a href="https://github.com/openbtk/openbtk-core#readme" target="_blank" rel="noopener" class="btn btn-primary">Read the README</a>
+          <a href="https://openbtk.org/openbtk-core/" target="_blank" rel="noopener" class="btn btn-primary">Read the Docs</a>
           <a href="https://github.com/openbtk" target="_blank" rel="noopener" class="btn btn-secondary">Browse the GitHub org</a>
         </div>
       </div>
@@ -119,14 +128,14 @@
       <div class="footer-grid">
         <div class="footer-col">
           <h5>Site</h5>
-          <a href="#products">Products</a>
+          <a href="#ecosystem">Ecosystem</a>
           <a href="#learn">Learn</a>
           <a href="#docs">Docs</a>
         </div>
         <div class="footer-col">
           <h5>Community</h5>
           <a href="https://github.com/openbtk" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://github.com/openbtk/openbtk-core" target="_blank" rel="noopener">Openbtk repo</a>
+          <a href="https://openbtk.org/openbtk-core/" target="_blank" rel="noopener">Documentation</a>
         </div>
         <div class="footer-col">
           <h5>Legal</h5>
@@ -134,7 +143,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2026 Openbtk.ai. Copyrights reserved.
+        &copy; 2026 Openbtk AI. Copyrights reserved.
       </div>
     </div>
   </footer>
