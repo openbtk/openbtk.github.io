@@ -27,8 +27,8 @@
   --status-planned-bg: #eef2f6;
   --status-planned-fg: #475569;
 
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: ui-monospace, "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -59,7 +59,8 @@ a { color: inherit; }
   padding: 0 1.5rem;
 }
 
-h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 0.75rem; font-weight: 700; }
+h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 0.75rem; font-weight: 500; }
+h1, h2 { font-weight: 300; letter-spacing: -0.025em; }
 p { margin: 0 0 1rem; }
 
 .eyebrow {
@@ -127,7 +128,7 @@ p { margin: 0 0 1rem; }
 
 .brand-word {
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 500;
   background: var(--accent-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -589,7 +590,7 @@ footer {
 }
 .stat-num {
   font-size: 2.1rem;
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.1;
   margin-bottom: 0.5rem;
   background: var(--accent-gradient);
@@ -807,3 +808,14 @@ main > .section:nth-of-type(even) { background: var(--bg-base-alt); }
 .card, .stat, .eco-layer, .eco-shared { box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.04); }
 .card:hover { box-shadow: 0 10px 24px -12px rgba(15, 23, 42, 0.18); }
 .tok-com { color: #7c8ba1; }
+
+/* --------------------------- Monospace labels and buttons --------------------------- */
+
+.eyebrow, .badge, .status-pill, .install-chip, .copy-btn, .code-block-head,
+.btn, .nav-cta { font-family: var(--font-mono); }
+.eyebrow { letter-spacing: 0.08em; font-weight: 500; font-size: 0.78rem; }
+.btn, .nav-cta { font-weight: 500; font-size: 0.88rem; letter-spacing: 0.01em; }
+.badge { font-weight: 500; font-size: 0.76rem; }
+@media (max-width: 480px) {
+  .badge { font-size: 0.66rem; letter-spacing: -0.01em; padding: 0.4rem 0.75rem; }
+}
