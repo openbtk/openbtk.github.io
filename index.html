@@ -3,18 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Openbtk AI - Home</title>
-  <meta name="description" content="Openbtk AI is an open source project for biomedical AI, built around Openbtk — a real, tested, open-source toolkit for ingesting, de-identifying, and grounding biomedical data for LLMs." />
+  <title>Openbtk.ai · Open-source infrastructure for biomedical AI</title>
+  <meta name="description" content="Openbtk.ai builds open-source infrastructure for biomedical AI. openbtk-core (v0.7, Apache 2.0) provides clinical data ingestion, PHI de-identification, retrieval-augmented generation, LLM guardrails and audit-grade provenance. Built in India, usable anywhere." />
   <link rel="canonical" href="https://openbtk.org/" />
-  <meta property="og:title" content="Openbtk AI — an open source ecosystem for biomedical AI" />
-  <meta property="og:description" content="Openbtk AI is an open source project for biomedical AI, built around Openbtk — a real, tested, open-source toolkit for ingesting, de-identifying, and grounding biomedical data for LLMs." />
+  <meta property="og:site_name" content="Openbtk.ai" />
+  <meta property="og:title" content="Openbtk.ai · Open-source infrastructure for biomedical AI" />
+  <meta property="og:description" content="Open-source clinical data ingestion, PHI de-identification, RAG, LLM guardrails and audit-grade provenance for biomedical AI. Apache 2.0." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://openbtk.org/" />
+  <meta property="og:image" content="https://openbtk.org/assets/logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Openbtk.ai · Open-source infrastructure for biomedical AI" />
+  <meta name="twitter:description" content="Open-source clinical data ingestion, PHI de-identification, RAG, LLM guardrails and audit-grade provenance for biomedical AI." />
+  <meta name="twitter:image" content="https://openbtk.org/assets/logo.png" />
   <link rel="icon" href="/assets/favicon.png?v=2" type="image/png" />
-  <link rel="stylesheet" href="/assets/css/style.css?v=4" />
+  <link rel="stylesheet" href="/assets/css/style.css?v=12" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "openbtk-core",
+    "description": "Open-source Python framework for clinical data ingestion, PHI de-identification, retrieval-augmented generation, LLM guardrails and audit-grade provenance.",
+    "codeRepository": "https://github.com/openbtk/openbtk-core",
+    "programmingLanguage": "Python",
+    "license": "https://www.apache.org/licenses/LICENSE-2.0",
+    "version": "0.7.0",
+    "url": "https://openbtk.org/",
+    "publisher": { "@type": "Organization", "name": "Openbtk.ai", "url": "https://openbtk.org/", "logo": "https://openbtk.org/assets/logo.png" }
+  }
+  </script>
 </head>
 <body>
 
@@ -22,14 +42,17 @@
     <div class="container">
       <a href="/" class="brand">
         <img src="/assets/logo.png?v=2" alt="" class="brand-mark" />
-        <span class="brand-word">Openbtk AI</span>
+        <span class="brand-word">Openbtk.ai</span>
       </a>
       <div class="nav-right">
         <ul class="nav-links">
           <li><a href="#ecosystem">Ecosystem</a></li>
-          <li><a href="#learn">Learn</a></li>
-          <li><a href="#docs">Docs</a></li>
-          <li><a class="nav-cta" href="https://github.com/openbtk" target="_blank" rel="noopener">About</a></li>
+          <li><a href="#core">openbtk-core</a></li>
+          <li><a href="#use-cases">Use cases</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+          <li><a href="#get-started">Get started</a></li>
+          <li><a href="https://openbtk.org/openbtk-core/" target="_blank" rel="noopener">Docs</a></li>
+          <li><a class="nav-cta" href="https://github.com/openbtk" target="_blank" rel="noopener">GitHub</a></li>
         </ul>
         <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
       </div>
@@ -38,35 +61,238 @@
 
   <main>
     <section class="hero">
-      <img class="hero-bg" src="/assets/hero-bg.svg" alt="" aria-hidden="true" />
-      <div class="badge"><span class="badge-dot"></span> Open Source Project · v0.5</div>
+      <img class="hero-bg" src="/assets/hero-bg.svg?v=2" alt="" aria-hidden="true" />
+      <div class="badge"><span class="badge-dot"></span> openbtk-core v0.7 · Apache 2.0 · Built in India</div>
       <h1>Open-source infrastructure<br/>for biomedical AI.</h1>
-      <p class="subtitle">Openbtk AI is an open source project for biomedical AI — built around Openbtk, a real, tested toolkit that ingests, de-identifies, and grounds biomedical data for LLMs. More components will join the ecosystem as they're ready.</p>
+      <p class="subtitle">Openbtk.ai builds the governed data layer between patient data and AI models. openbtk-core is a tested Python framework for clinical data ingestion, PHI de-identification, retrieval-augmented generation (RAG) and LLM guardrails, with an auditable provenance record for every pipeline run.</p>
       <div class="btn-group">
-        <a href="https://openbtk.org/openbtk-core/" target="_blank" rel="noopener" class="btn btn-primary">Explore Openbtk</a>
-        <a href="https://github.com/openbtk" target="_blank" rel="noopener" class="btn btn-secondary">View on GitHub</a>
+        <a href="#get-started" class="btn btn-primary">Get started</a>
+        <a href="https://github.com/openbtk/openbtk-core" target="_blank" rel="noopener" class="btn btn-secondary">View on GitHub</a>
       </div>
+      <div class="hero-install"><span class="install-chip">pip install openbtk</span></div>
     </section>
 
     <section class="section" id="ecosystem" style="border-top:none;">
       <div class="container">
         <div class="section-head">
           <div class="eyebrow">Ecosystem</div>
-          <h2>One open source ecosystem, one component so far</h2>
-          <p>Openbtk AI is built to give healthcare enterprises, developers, and researchers the open source infrastructure layer biomedical AI still doesn't have.</p>
+          <h2>One stack, five components</h2>
+          <p>An open-core platform: the Apache 2.0 openbtk-core framework, with four enterprise components on the roadmap.</p>
         </div>
-        <div class="grid" style="max-width:420px;margin:0 auto;">
-
-          <div class="product-card">
-            <div class="product-card-head">
-              <h3>Openbtk</h3>
-              <span class="status-pill status-done">v0.5 · Active</span>
+        <div class="eco" role="group" aria-label="The Openbtk.ai stack, read from the bottom up">
+          <div class="eco-stack">
+            <div class="eco-apps eco-reveal" style="--d:5">
+              <span class="eco-apps-label">Applications</span>
+              <ul><li>HIS &amp; EMR vendors</li><li>Payers &amp; TPAs</li><li>Pharma &amp; CROs</li><li>Imaging &amp; diagnostics</li><li>Public health</li></ul>
             </div>
-            <div class="role">Open source toolkit</div>
-            <p>De-identification, streaming pipelines, provenance, EHR loading, retrieval, and guardrails for biomedical AI — tested, benchmarked, and installable today.</p>
-            <a class="product-card-link" href="https://openbtk.org/openbtk-core/" target="_blank" rel="noopener">Explore Openbtk →</a>
+            <div class="eco-row">
+          <div class="eco-layer  eco-reveal" style="--d:4">
+            <span class="eco-icon eco-icon-brand"><svg class="eco-ico" focusable="false" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg></span>
+            <div class="eco-text">
+              <h3><span class="eco-num">2</span>System One model</h3>
+              <p>Low-latency, structured clinical decisions</p>
+            </div>
+            <span class="eco-badge eco-badge-ent">Enterprise · Planned</span>
           </div>
+          <div class="eco-layer  eco-reveal" style="--d:4">
+            <span class="eco-icon eco-icon-brand"><svg class="eco-ico" focusable="false" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path><path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path><path d="M19.938 10.5a4 4 0 0 1 .585.396"></path><path d="M6 18a4 4 0 0 1-1.967-.516"></path><path d="M19.967 17.484A4 4 0 0 1 18 18"></path></svg></span>
+            <div class="eco-text">
+              <h3><span class="eco-num">1</span>Multimodal models</h3>
+              <p>Multimodal embedding and generative models</p>
+            </div>
+            <span class="eco-badge eco-badge-ent">Enterprise · Planned</span>
+          </div>
+            </div>
+          <div class="eco-layer eco-wide eco-reveal" style="--d:3">
+            <span class="eco-icon eco-icon-cyan"><svg class="eco-ico" focusable="false" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5V19A9 3 0 0 0 21 19V5"></path><path d="M3 12A9 3 0 0 0 21 12"></path></svg></span>
+            <div class="eco-text">
+              <h3><span class="eco-num">3</span>Biomedical vector DB</h3>
+              <p>Milvus-based multimodal indexing, ANN search and hybrid retrieval</p>
+            </div>
+            <span class="eco-badge eco-badge-ent">Enterprise · Planned</span>
+          </div>
+          <div class="eco-layer eco-wide eco-core eco-reveal" style="--d:2">
+            <span class="eco-icon eco-icon-brand"><svg class="eco-ico" focusable="false" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg></span>
+            <div class="eco-text">
+              <h3>openbtk-core <span class="eco-ver">v0.7</span></h3>
+              <p>Ingestion · de-identification · RAG · guardrails · provenance. Roadmap: prompt markup, agents, MCP</p><a class="eco-link" href="#core">View capabilities →</a>
+            </div>
+            <span class="eco-badge eco-badge-oss">Open source · Live</span>
+          </div>
+          <div class="eco-layer eco-wide eco-data eco-reveal" style="--d:1">
+            <span class="eco-icon eco-icon-amber"><svg class="eco-ico" focusable="false" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z"></path><path d="m7 16.5-4.74-2.85"></path><path d="m7 16.5 5-3"></path><path d="M7 16.5v5.17"></path><path d="M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z"></path><path d="m17 16.5-5-3"></path><path d="m17 16.5 4.74-2.85"></path><path d="M17 16.5v5.17"></path><path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z"></path><path d="M12 8 7.26 5.15"></path><path d="m12 8 4.74-2.85"></path><path d="M12 13.5V8"></path></svg></span>
+            <div class="eco-text">
+              <h3><span class="eco-num">4</span>Multimodal patient datasets</h3>
+              <p>Consented, de-identified, licensed data for training and validation</p>
+            </div>
+            <span class="eco-badge eco-badge-ent">Enterprise · Planned</span>
+          </div>
+          </div>
+          <aside class="eco-shared eco-reveal" style="--d:6">
+            <h3>Cross-cutting capabilities</h3>
+            <ul><li><span class="eco-icon eco-icon-slate"><svg class="eco-ico" focusable="false" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 9.9-1"></path></svg></span><span>Open core under Apache 2.0</span></li><li><span class="eco-icon eco-icon-slate"><svg class="eco-ico" focusable="false" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"></path><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"></path><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"></path></svg></span><span>Multimodal by design: EHR, clinical text, imaging, biosignals and genomics</span></li><li><span class="eco-icon eco-icon-slate"><svg class="eco-ico" focusable="false" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"></rect><rect width="20" height="8" x="2" y="14" rx="2" ry="2"></rect><line x1="6" x2="6.01" y1="6" y2="6"></line><line x1="6" x2="6.01" y1="18" y2="18"></line></svg></span><span>Deployable on-premises, in a private cloud (VPC) or air-gapped</span></li><li><span class="eco-icon eco-icon-slate"><svg class="eco-ico" focusable="false" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span><span>PHI de-identified before model inference</span></li><li><span class="eco-icon eco-icon-slate"><svg class="eco-ico" focusable="false" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="m9 15 2 2 4-4"></path></svg></span><span>End-to-end data lineage for audit and regulatory review</span></li></ul>
+          </aside>
+        </div>
+        <p class="eco-foot">openbtk-core is generally available. Enterprise components are in development; specifications will be published at release.</p>
+      </div>
+    </section>
 
+    <section class="section" id="modalities">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Biomedical multimodal data</div>
+          <h2>Eight modalities, one stack</h2>
+          <p>The platform is designed for eight biomedical data modalities across ingestion, de-identification, embedding, indexing and dataset licensing. openbtk-core currently supports structured EHR data and clinical text.</p>
+        </div>
+        <div class="grid grid-4">
+          <div class="card mod-card">
+            <div class="mod-head"><h4>EHR / EMR</h4><span class="status-pill status-done">Supported</span></div>
+            <p>Diagnoses, labs, medications, vitals, encounters</p>
+            <div class="mod-fmt">FHIR R4 · OMOP · HL7v2</div>
+          </div>
+          <div class="card mod-card">
+            <div class="mod-head"><h4>Clinical text and notes</h4><span class="status-pill status-done">Supported</span></div>
+            <p>Discharge summaries, progress and OPD notes, reports</p>
+            <div class="mod-fmt">Free text · JSON Lines</div>
+          </div>
+          <div class="card mod-card">
+            <div class="mod-head"><h4>Biosignals</h4><span class="status-pill status-planned">Planned</span></div>
+            <p>ECG, EEG, EMG, SpO2, ICU waveforms</p>
+            <div class="mod-fmt">WFDB · EDF · CSV</div>
+          </div>
+          <div class="card mod-card">
+            <div class="mod-head"><h4>Clinical sounds</h4><span class="status-pill status-planned">Planned</span></div>
+            <p>Heart, lung and bowel auscultation</p>
+            <div class="mod-fmt">WAV · digital stethoscopes</div>
+          </div>
+          <div class="card mod-card">
+            <div class="mod-head"><h4>Medical imaging</h4><span class="status-pill status-planned">Planned</span></div>
+            <p>Radiography, CT, MRI, ultrasound, fundus</p>
+            <div class="mod-fmt">DICOM</div>
+          </div>
+          <div class="card mod-card">
+            <div class="mod-head"><h4>Histopathology</h4><span class="status-pill status-planned">Planned</span></div>
+            <p>Whole-slide imaging (WSI), digital pathology</p>
+            <div class="mod-fmt">SVS · DICOM-WSI</div>
+          </div>
+          <div class="card mod-card">
+            <div class="mod-head"><h4>Surgery videos</h4><span class="status-pill status-planned">Planned</span></div>
+            <p>Laparoscopic, endoscopic, robotic</p>
+            <div class="mod-fmt">MP4 · DICOM video</div>
+          </div>
+          <div class="card mod-card">
+            <div class="mod-head"><h4>Genome sequencing</h4><span class="status-pill status-planned">Planned</span></div>
+            <p>WGS, WES and targeted gene panels</p>
+            <div class="mod-fmt">FASTQ · BAM · VCF</div>
+          </div>
+        </div>
+        <p class="eco-foot">Surgical video and genomic data are inherently identifiable and will require face de-identification or controlled-access governance rather than text redaction.</p>
+      </div>
+    </section>
+
+    <section class="section" id="core">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">openbtk-core</div>
+          <h2>openbtk-core capabilities</h2>
+          <p>Generally available in v0.7 on PyPI. Every capability is covered by automated tests in continuous integration (CI).</p>
+        </div>
+        <div class="grid grid-4">
+          <div class="card">
+            <h4>PHI de-identification</h4>
+            <p>Rule-based detection of HIPAA Safe Harbor identifiers, optional NER for names and addresses, five transformation modes (redaction, tagging, hashing, surrogate substitution, date shifting) and k-anonymity for tabular data.</p>
+          </div>
+          <div class="card">
+            <h4>Clinical NLP preprocessing</h4>
+            <p>Loaders for plain text, JSON Lines and MIMIC-style notes, section segmentation, and section-aware chunking that preserves clinical context such as Assessment and Plan.</p>
+          </div>
+          <div class="card">
+            <h4>EHR interoperability</h4>
+            <p>FHIR R4, OMOP CDM and HL7 v2 ingestion into a unified longitudinal patient record, with timelines, cohort filters and embedding-ready text.</p>
+          </div>
+          <div class="card">
+            <h4>Model-agnostic LLM integration</h4>
+            <p>OpenAI, Anthropic, Azure OpenAI, AWS Bedrock, Google Vertex AI, local Hugging Face models and any OpenAI-compatible endpoint, with a local-only policy that prevents data egress.</p>
+          </div>
+          <div class="card">
+            <h4>Grounded retrieval (RAG)</h4>
+            <p>FAISS, Chroma and Qdrant vector stores, hybrid retrieval and reranking, with source attribution to the originating record.</p>
+          </div>
+          <div class="card">
+            <h4>Clinical guardrails</h4>
+            <p>PHI leakage, terminology validity, groundedness, dosage plausibility, and EHR code and unit validation, reported as results rather than pipeline failures.</p>
+          </div>
+          <div class="card">
+            <h4>Provenance and lineage</h4>
+            <p>Every pipeline run emits a RunManifest with record counts, components, guardrail outcomes and input digests. Provenance capture is always on.</p>
+          </div>
+          <div class="card">
+            <h4>Evaluation and orchestration</h4>
+            <p>De-identification scoring, retrieval metrics, a CLI, and LangChain and LangGraph adapters.</p>
+          </div>
+        </div>
+
+        <div class="stats mt-lg">
+          <div class="stat">
+            <div class="stat-num">10M notes</div>
+            <p>processed end to end (ingest, de-identify, segment, chunk) at 0.074 GB peak memory</p>
+          </div>
+          <div class="stat">
+            <div class="stat-num">0.933 F1</div>
+            <p>de-identification F1 with the default recognizer on a synthetic corpus</p>
+          </div>
+          <div class="stat">
+            <div class="stat-num">CI-verified</div>
+            <p>documented quick start executed on every change</p>
+          </div>
+        </div>
+        <p class="note"><strong>Current limitations.</strong> openbtk-core is pre-1.0. Benchmarks use synthetic data and i2b2/n2c2 evaluation is pending. The default recognizer does not detect personal names; enable the NER recognizer where names are present. See the <a href="https://github.com/openbtk/openbtk-core#readme" target="_blank" rel="noopener">README</a> for details.</p>
+      </div>
+    </section>
+
+    <section class="section" id="core-next">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Core roadmap</div>
+          <h2>Upcoming in openbtk-core</h2>
+          <p>Planned for openbtk-core 1.0 and later, released under Apache 2.0.</p>
+        </div>
+        <div class="next-grid">
+          <div class="card next-markup">
+            <div class="mod-head"><h4>Biomedical multimodal prompt markup</h4><span class="status-pill status-planned">Planned</span></div>
+            <p>A structured, PHI-aware markup for presenting multimodal patient context to any LLM.</p>
+            <div class="code-block next-code">
+              <div class="code-block-head"><span>illustrative syntax · draft, not a final spec</span></div>
+              <pre><code><span class="tok-kw">&lt;patient</span> ref=<span class="tok-str">"P-7F3A"</span> phi=<span class="tok-str">"removed"</span><span class="tok-kw">&gt;</span>
+  <span class="tok-kw">&lt;ehr</span> src=<span class="tok-str">"fhir"</span> code=<span class="tok-str">"LOINC:4548-4"</span><span class="tok-kw">&gt;</span>HbA1c 8.2%<span class="tok-kw">&lt;/ehr&gt;</span>
+  <span class="tok-kw">&lt;note</span> section=<span class="tok-str">"assessment"</span><span class="tok-kw">&gt;</span>Poorly controlled T2DM<span class="tok-kw">&lt;/note&gt;</span>
+  <span class="tok-kw">&lt;signal</span> kind=<span class="tok-str">"ecg"</span> lead=<span class="tok-str">"II"</span> ref=<span class="tok-str">"sig:7F3A/ecg/01"</span><span class="tok-kw">/&gt;</span>
+  <span class="tok-kw">&lt;sound</span> kind=<span class="tok-str">"lung"</span> site=<span class="tok-str">"RLL"</span> ref=<span class="tok-str">"aud:7F3A/03"</span><span class="tok-kw">/&gt;</span>
+  <span class="tok-kw">&lt;image</span> kind=<span class="tok-str">"cxr"</span> ref=<span class="tok-str">"dicom:1.2.840/..."</span><span class="tok-kw">/&gt;</span>
+<span class="tok-kw">&lt;/patient&gt;</span>
+<span class="tok-kw">&lt;ask</span> type=<span class="tok-str">"choice"</span> from=<span class="tok-str">"icd10:E11.*"</span><span class="tok-kw">&gt;</span>Best code?<span class="tok-kw">&lt;/ask&gt;</span></code></pre>
+            </div>
+            <ul class="tick-list">
+              <li>Typed tags per modality, with PHI status and provenance on every element</li>
+              <li>Large objects referenced rather than embedded, and rendered per LLM provider</li>
+              <li>Validated by core guardrails before any prompt is sent</li>
+            </ul>
+          </div>
+          <div class="next-side">
+            <div class="card">
+              <div class="mod-head"><h4>Prebuilt clinical agents</h4><span class="status-pill status-planned">Planned</span></div>
+              <ul class="chip-list"><li>De-identification agent</li><li>Chart Q&amp;A with citations</li><li>Cohort builder (FHIR, OMOP)</li><li>Guardrail reviewer</li></ul>
+            </div>
+            <div class="card">
+              <div class="mod-head"><h4>MCP server integrations</h4><span class="status-pill status-planned">Planned</span></div>
+              <p>Model Context Protocol (MCP) servers exposing ingestion, de-identification, search and guardrail tools, with data-egress policy enforced on every call.</p>
+            </div>
+            <div class="card">
+              <h4>Agent framework support</h4>
+              <div class="fw-row"><span class="fw-label fw-today">Today</span><ul class="chip-list"><li>LangChain</li><li>LangGraph</li></ul></div>
+              <div class="fw-row"><span class="fw-label">Planned</span><ul class="chip-list chip-dashed"><li>CrewAI</li><li>AutoGen</li><li>LlamaIndex</li></ul></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -74,50 +300,224 @@
     <section class="section" id="learn">
       <div class="container">
         <div class="section-head">
-          <div class="eyebrow">Learn</div>
-          <h2>What is the Openbtk AI ecosystem?</h2>
-          <p>Openbtk AI is an open source project, not a product lineup — a growing collection of tools for biomedical AI that share one goal: help healthcare enterprises, developers, and researchers build next-generation GenAI applications without re-solving the same infrastructure problems. Openbtk is where it starts.</p>
+          <div class="eyebrow">The problem</div>
+          <h2>Why healthcare AI stalls before production</h2>
+          <p>Healthcare AI teams repeatedly rebuild the same data infrastructure, and two questions gate deployment: has all PHI been removed, and can every output be traced to its source?</p>
         </div>
-
-        <img src="/assets/ecosystem-diagram.svg" alt="Diagram: Openbtk AI ecosystem at the center, connected to Openbtk (the active v0.5 toolkit) today, with more components to come over time" style="max-width:640px;width:100%;margin:0 auto 3rem;display:block;" />
-
-        <p class="code-caption" style="margin-bottom:2rem;">What that actually solves, in a traditional biomedical AI or agent build:</p>
-
         <div class="grid grid-4">
           <div class="card">
-            <div class="icon">🔒</div>
-            <h4>Build AI your compliance team approves</h4>
-            <p>Patient data is de-identified before it ever reaches a model — so your team can build clinical chatbots and assistants without becoming PHI-handling experts first.</p>
+            <span class="eco-icon eco-icon-brand card-ico"><svg class="eco-ico" focusable="false" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg></span>
+            <h4>Privacy by design</h4>
+            <p>PHI is de-identified before model inference, supporting compliance reviews under HIPAA, the DPDP Act and GDPR.</p>
           </div>
           <div class="card">
-            <div class="icon">📋</div>
-            <h4>Answer "prove it" before it's asked</h4>
-            <p>Every AI pipeline leaves a verifiable record of what happened — the audit trail enterprise healthcare organizations, auditors, and regulators expect, without extra engineering work on your side.</p>
+            <span class="eco-icon eco-icon-brand card-ico"><svg class="eco-ico" focusable="false" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="m9 15 2 2 4-4"></path></svg></span>
+            <h4>Audit-ready by default</h4>
+            <p>Every pipeline run produces a verifiable provenance record for internal audit, regulators and procurement due diligence.</p>
           </div>
           <div class="card">
-            <div class="icon">🗂️</div>
-            <h4>AI that reads a chart like a clinician</h4>
-            <p>A patient's history, assessment, and plan stay together instead of being scrambled into generic text fragments — so your RAG system gives grounded, coherent answers.</p>
+            <span class="eco-icon eco-icon-brand card-ico"><svg class="eco-ico" focusable="false" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg></span>
+            <h4>Clinically coherent context</h4>
+            <p>Section-aware processing keeps history, assessment and plan intact, improving retrieval relevance and answer grounding.</p>
           </div>
           <div class="card">
-            <div class="icon">⚡</div>
-            <h4>From pilot to enterprise scale, no rewrite</h4>
-            <p>Built to handle real patient-record volumes from day one, so a proof-of-concept with a few hundred notes doesn't turn into a rebuild six months later.</p>
+            <span class="eco-icon eco-icon-brand card-ico"><svg class="eco-ico" focusable="false" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="m12 14 4-4"></path><path d="M3.34 19a10 10 0 1 1 17.32 0"></path></svg></span>
+            <h4>From pilot to production</h4>
+            <p>Streaming pipelines process millions of records in bounded memory, so proofs of concept reach production without re-engineering.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="docs">
+    <section class="section" id="use-cases">
       <div class="container">
         <div class="section-head">
-          <div class="eyebrow">Docs</div>
-          <h2>Real documentation, generated from the code</h2>
-          <p>Openbtk's docs build straight from the codebase and deploy automatically on every change — installation, API reference, guides, and benchmarks.</p>
+          <div class="eyebrow">Applications</div>
+          <h2>Use cases</h2>
+          <p>Deploy openbtk-core today. Enterprise capabilities follow a risk-based rollout: administrative and operational use cases first, data products next, and clinical decision support only after clinical validation and regulatory clearance.</p>
         </div>
-        <div class="btn-group">
-          <a href="https://openbtk.org/openbtk-core/" target="_blank" rel="noopener" class="btn btn-primary">Read the Docs</a>
-          <a href="https://github.com/openbtk" target="_blank" rel="noopener" class="btn btn-secondary">Browse the GitHub org</a>
+        <div class="card today-card">
+          <div class="mod-head"><h4>Available now with openbtk-core</h4><span class="status-pill status-done">Available</span></div>
+          <ul class="tick-list tick-cols">
+            <li>De-identification of clinical notes and structured records ahead of LLM inference</li>
+            <li>FHIR, OMOP and HL7 v2 ingestion with unified patient records and cohort filtering</li>
+            <li>Chart question answering with source-cited retrieval (RAG)</li>
+            <li>Audit trails and data lineage for every AI pipeline run</li>
+          </ul>
+        </div>
+        <div class="stage-label">Enterprise roadmap <span class="status-pill status-planned">Planned</span></div>
+        <div class="grid grid-3">
+          <div class="card stage-card">
+            <div class="stage-num">1</div>
+            <h4>Administrative and operational</h4>
+            <p class="stage-sub">Low regulatory risk, early return on investment</p>
+            <ul class="tick-list"><li>Multilingual patient intake and triage</li><li>Claims pre-adjudication (PM-JAY, NHCX)</li><li>ICD-10 medical coding assistance</li><li>LLM output verification</li><li>Clinical trial eligibility screening</li><li>On-premises AI with zero data egress</li></ul>
+          </div>
+          <div class="card stage-card">
+            <div class="stage-num">2</div>
+            <h4>Data products</h4>
+            <p class="stage-sub">Enabled by the datasets programme</p>
+            <ul class="tick-list"><li>Cohort discovery across millions of notes</li><li>Validation datasets for regulatory submissions</li><li>Model fine-tuning on population-specific data</li><li>Real-world evidence (RWE) for pharma and CROs</li></ul>
+          </div>
+          <div class="card stage-card">
+            <div class="stage-num">3</div>
+            <h4>Clinical decision support</h4>
+            <p class="stage-sub">After clinical validation and regulatory clearance</p>
+            <ul class="tick-list"><li>Prescription safety checks</li><li>Handwritten prescription digitisation</li><li>Radiology report drafting</li><li>Patient-similarity search</li><li>Multimodal chart Q&amp;A with citations</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="approach">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Our approach</div>
+          <h2>Built in India, usable anywhere</h2>
+          <p>An open, vendor-neutral platform engineered in India for healthcare organisations worldwide, deployable wherever patient data resides.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card">
+            <h4>Open core</h4>
+            <p>openbtk-core is licensed under Apache 2.0 and can be embedded in commercial products without copyleft obligations. Capabilities released in core remain open source.</p>
+          </div>
+          <div class="card">
+            <h4>Data residency by design</h4>
+            <p>Deploy on a workstation, on-premises or in your private cloud. Each model provider declares whether it transmits data off-site, and a local-only policy blocks those that do.</p>
+          </div>
+          <div class="card">
+            <h4>Standards-based interoperability</h4>
+            <p>Built on FHIR, OMOP and HL7 v2. Current defaults follow US conventions (HIPAA Safe Harbor, ICD-10-CM); country packs will add market-specific rules.</p>
+          </div>
+        </div>
+        <div class="pack-intro mt-lg">
+          <h3>Market-specific country packs</h3>
+          <p>Jurisdiction-specific identifiers, privacy rules, code systems and FHIR profiles will ship as open-source extras, for example <code>pip install "openbtk[in]"</code>. Enterprise editions add models calibrated to each market.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card pack-card">
+            <div class="mod-head"><h4>openbtk-in</h4><span class="status-pill status-progress">Priority</span></div>
+            <p>Aadhaar, ABHA, PAN and PIN codes · DPDP Act · WHO ICD-10 and PM-JAY packages · ABDM FHIR profiles · Indic languages</p>
+          </div>
+          <div class="card pack-card">
+            <div class="mod-head"><h4>openbtk-us</h4><span class="status-pill status-planned">Planned</span></div>
+            <p>SSN, MRN and ZIP codes · HIPAA · ICD-10-CM and RxNorm · US Core FHIR profiles</p>
+          </div>
+          <div class="card pack-card">
+            <div class="mod-head"><h4>openbtk-eu</h4><span class="status-pill status-planned">On request</span></div>
+            <p>National IDs and postcodes · GDPR · SNOMED CT and ATC · HL7 Europe and IPS profiles</p>
+          </div>
+        </div>
+        <p class="eco-foot">Licensed terminologies such as CPT and SNOMED CT require the user's own licence; packs provide loaders only.</p>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Roadmap</div>
+          <h2>A phased, milestone-gated roadmap</h2>
+          <p class="vision">Vision: enable every healthcare organisation to build, validate and deploy AI on its own patient data, securely and in place, on an open core.</p>
+          <p>Each phase begins only after the previous phase meets its exit criterion. Timelines will be published once confirmed.</p>
+        </div>
+        <div class="grid grid-4">
+          <div class="card phase-card phase-now">
+            <div class="mod-head"><span class="phase-n">Phase 1</span><span class="status-pill status-progress">In progress</span></div>
+            <h4>Core 1.0</h4>
+            <p class="phase-lic">Open source</p>
+            <ul class="tick-list"><li>openbtk-core 1.0 and India country pack</li><li>Multimodal prompt markup</li><li>Agents and MCP servers</li></ul>
+            <p class="phase-gate"><strong>Before the next phase:</strong> public PHI de-identification benchmark on Indian clinical records</p>
+          </div>
+          <div class="card phase-card">
+            <div class="mod-head"><span class="phase-n">Phase 2</span><span class="status-pill status-planned">Next</span></div>
+            <h4>Search</h4>
+            <p class="phase-lic">Enterprise</p>
+            <ul class="tick-list"><li>Multimodal embeddings</li><li>Biomedical vector DB for eight modalities</li><li>Core: CrewAI, AutoGen and LlamaIndex</li></ul>
+            <p class="phase-gate"><strong>Before the next phase:</strong> retrieval outperforms baseline on partner data</p>
+          </div>
+          <div class="card phase-card">
+            <div class="mod-head"><span class="phase-n">Phase 3</span><span class="status-pill status-planned">Planned</span></div>
+            <h4>Decide</h4>
+            <p class="phase-lic">Enterprise</p>
+            <ul class="tick-list"><li>System One model</li><li>Multilingual triage</li><li>Claim and coding checks</li></ul>
+            <p class="phase-gate"><strong>Before the next phase:</strong> clinical validation partner and defined regulatory pathway</p>
+          </div>
+          <div class="card phase-card">
+            <div class="mod-head"><span class="phase-n">Phase 4</span><span class="status-pill status-planned">Later</span></div>
+            <h4>Generate</h4>
+            <p class="phase-lic">Enterprise</p>
+            <ul class="tick-list"><li>Multimodal LLM</li><li>Radiology and document drafts</li><li>Subject to regulatory review</li></ul>
+            <p class="phase-gate"><strong>Then:</strong> broader clinical deployment as evidence matures</p>
+          </div>
+        </div>
+        <div class="card datasets-track">
+          <div class="mod-head"><h4>Datasets track</h4><span class="status-pill status-planned">Planned</span></div>
+          <p>Begins in Phase 2 to support training and validation for Phases 3 and 4: a consented pilot cohort, followed by a licensed dataset catalogue with secure enclave access.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="get-started">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Get started</div>
+          <h2>Deploy an auditable pipeline in minutes</h2>
+          <p>Install the clinical-text extra, configure a pipeline over your notes, and retain the RunManifest from each run as audit evidence.</p>
+        </div>
+        <div class="code-wrap">
+          <div class="code-block">
+            <div class="code-block-head"><span>shell</span><button class="copy-btn" type="button">Copy</button></div>
+            <pre><code>pip install <span class="tok-str">"openbtk[text]"</span></code></pre>
+          </div>
+          <div class="code-block" style="margin-top:1rem;">
+            <div class="code-block-head"><span>python</span><button class="copy-btn" type="button">Copy</button></div>
+            <pre><code><span class="tok-kw">from</span> openbtk.data <span class="tok-kw">import</span> clinical_text  <span class="tok-com"># registers clinical-text components</span>
+<span class="tok-kw">from</span> openbtk.pipelines <span class="tok-kw">import</span> Pipeline, Step
+
+pipeline = (
+    <span class="tok-fn">Pipeline</span>(<span class="tok-str">"clinical-rag"</span>)
+    .<span class="tok-fn">add</span>(<span class="tok-fn">Step</span>(<span class="tok-str">"load"</span>, <span class="tok-str">"loader.clinical_text.plain_text"</span>, path=<span class="tok-str">"notes/"</span>))
+    .<span class="tok-fn">add</span>(<span class="tok-fn">Step</span>(<span class="tok-str">"deid"</span>, <span class="tok-str">"preprocessor.general.deidentify"</span>, mode=<span class="tok-str">"surrogate"</span>))
+    .<span class="tok-fn">add</span>(<span class="tok-fn">Step</span>(<span class="tok-str">"segment"</span>, <span class="tok-str">"preprocessor.clinical_text.section_segment"</span>))
+    .<span class="tok-fn">add</span>(<span class="tok-fn">Step</span>(<span class="tok-str">"chunk"</span>, <span class="tok-str">"chunker.clinical_text.section_aware"</span>, max_tokens=200))
+)
+manifest = pipeline.<span class="tok-fn">run</span>()  <span class="tok-com"># every run emits a RunManifest</span>
+<span class="tok-fn">print</span>(manifest.status)</code></pre>
+          </div>
+          <p class="code-caption">Adapted from the README quick start, verified in CI.</p>
+        </div>
+        <div class="btn-group mt-lg">
+          <a href="https://openbtk.org/openbtk-core/" target="_blank" rel="noopener" class="btn btn-primary">Read the docs</a>
+          <a href="https://pypi.org/project/openbtk/" target="_blank" rel="noopener" class="btn btn-secondary">openbtk on PyPI</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="community">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Community and partnerships</div>
+          <h2>Collaborate with Openbtk.ai</h2>
+          <p>openbtk-core is developed in the open. We also partner with healthcare organisations to co-develop the enterprise platform.</p>
+        </div>
+        <div class="grid grid-2" style="max-width:820px;margin:0 auto;">
+          <div class="card">
+            <h4>Contribute</h4>
+            <p>Review the contributing guide, pick up an open issue, or propose a new loader, recognizer or guardrail.</p>
+            <a class="product-card-link" href="https://github.com/openbtk/openbtk-core/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing guide →</a>
+          </div>
+          <div class="card">
+            <h4>Report an issue</h4>
+            <p>Report defects, missed identifiers or documentation gaps through GitHub Issues.</p>
+            <a class="product-card-link" href="https://github.com/openbtk/openbtk-core/issues" target="_blank" rel="noopener">Open an issue →</a>
+          </div>
+        </div>
+        <div class="card partner-card mt-lg">
+          <h4>Partner with Openbtk.ai</h4>
+          <p>Partnership opportunities:</p>
+          <ul class="chip-list partner-chips"><li>Design partners</li><li>Clinical validation sites</li><li>Data partners</li><li>Enterprise pilots</li><li>Healthcare IT and engineering services firms</li></ul>
+          <p class="partner-note">For partnership enquiries, contact the maintainers through GitHub.</p>
+          <a class="product-card-link" href="https://github.com/openbtk" target="_blank" rel="noopener">Openbtk.ai on GitHub →</a>
         </div>
       </div>
     </section>
@@ -129,25 +529,31 @@
         <div class="footer-col">
           <h5>Site</h5>
           <a href="#ecosystem">Ecosystem</a>
-          <a href="#learn">Learn</a>
-          <a href="#docs">Docs</a>
+          <a href="#modalities">Modalities</a>
+          <a href="#core">openbtk-core</a>
+          <a href="#use-cases">Use cases</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#get-started">Get started</a>
         </div>
         <div class="footer-col">
           <h5>Community</h5>
           <a href="https://github.com/openbtk" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/openbtk/openbtk-core/issues" target="_blank" rel="noopener">Issues</a>
           <a href="https://openbtk.org/openbtk-core/" target="_blank" rel="noopener">Documentation</a>
+          <a href="https://pypi.org/project/openbtk/" target="_blank" rel="noopener">PyPI</a>
         </div>
         <div class="footer-col">
           <h5>Legal</h5>
           <a href="https://github.com/openbtk/openbtk-core/blob/main/LICENSE" target="_blank" rel="noopener">Apache 2.0 License</a>
+          <a href="https://github.com/openbtk/openbtk-core/blob/main/SECURITY.md" target="_blank" rel="noopener">Security policy</a>
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2026 Openbtk AI. Copyrights reserved.
+        &copy; 2026 Openbtk.ai · openbtk-core is open source under the Apache 2.0 License · Built in India
       </div>
     </div>
   </footer>
 
-  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/main.js?v=2"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-// openbtk.ai — shared site behavior: mobile nav toggle + code copy buttons
+// Openbtk.ai: shared site behaviour: mobile nav toggle, code copy buttons, ecosystem build-in
 
 document.addEventListener("DOMContentLoaded", function () {
   var toggle = document.querySelector(".nav-toggle");
@@ -47,4 +47,17 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+  // Ecosystem stack: layers fade in from the bottom up the first time it scrolls into view.
+  // Content stays visible without JS, without IntersectionObserver, or with reduced motion.
+  var eco = document.querySelector(".eco");
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (eco && "IntersectionObserver" in window && !reduce) {
+    eco.classList.add("eco-anim");
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { eco.classList.add("is-visible"); io.disconnect(); }
+      });
+    }, { threshold: 0.25 });
+    io.observe(eco);
+  }
 });

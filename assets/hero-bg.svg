@@ -5,9 +5,9 @@
       <stop offset="1" stop-color="#8b5cf6"/>
     </linearGradient>
     <radialGradient id="hb-fade" cx="50%" cy="45%" r="65%">
-      <stop offset="0%" stop-color="#0a0e17" stop-opacity="0"/>
-      <stop offset="75%" stop-color="#0a0e17" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#0a0e17" stop-opacity="0.9"/>
+      <stop offset="0%" stop-color="#f5fbf9" stop-opacity="0"/>
+      <stop offset="75%" stop-color="#f5fbf9" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#f5fbf9" stop-opacity="0.9"/>
     </radialGradient>
   </defs>
 
